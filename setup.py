@@ -19,14 +19,14 @@ REQUIREMENTS = [
 
 
 setup(
-    name='pymssa',
+    name='pymssa2',
     version='0.1.0',
     description="Multivariate Singular Spectrum Analysis (MSSA)",
-    author="Kiefer Katovich",
-    author_email='kiefer.katovich@gmail.com',
-    url='https://github.com/kieferk/pymssa.git',
+    author="Kiefer Katovich and Igor Rivin",
+    author_email='rivinh@temple.edu',
+    url='https://github.com/igorrivin/pymssa.git',
     packages=find_packages(),
-    package_dir={'pymssa':'pymssa'},
+    package_dir={'pymssa2':'pymssa2'},
     include_package_data=True,
     install_requires=REQUIREMENTS,
     zip_safe=False,

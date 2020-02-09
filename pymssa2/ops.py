@@ -56,7 +56,7 @@ def decompose_trajectory_matrix(trajectory_matrix, K, svd_method='randomized'):
     # singular values are the square root of the eigenvalues
     #s = np.sqrt(s)
 
-    return V.T, s, V, rank
+    return U, s, U.T, rank
 
 
 def sv_to_explained_variance_ratio(singular_values, N):

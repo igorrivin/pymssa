@@ -382,7 +382,7 @@ class MSSA:
                 raise Exception("pa_percentile_threshold must be > 0 and <= 100.")
 
         # check svd method
-        if not self.svd_method in ['randomized', 'exact', 'randomized_gpu'':
+        if not self.svd_method in ['randomized', 'exact', 'randomized_gpu']:
             raise Exception("svd_method must be one of 'randomized', 'exact'.'randomized_gpu'")
 
 

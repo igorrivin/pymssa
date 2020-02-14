@@ -40,15 +40,14 @@ def decompose_trajectory_matrix(trajectory_matrix, K, svd_method='randomized'):
     # https://arxiv.org/pdf/1309.5050.pdf
     #S = np.dot(trajectory_matrix, trajectory_matrix.T)
 
-    S = trajectory_matrix
     # Perform SVD on S
     
     if svd_method == 'randomized':
-        U, s, V = randomized_svd(S, K)
+        U, s, V = randomized_svd(trajectory_matrix, K)
     elif svd_method == 'exact':
-        U, s, V = np.linalg.svd(S)
+        U, s, V = np.linalg.svd(trajectory_matrix)
     else:
-        U, s, v = randomized_svd_gpu(S, K)
+        U, s, V = randomized_svd_gpu(trajectory_matrix, K)
 
     # Valid rank is only where eigenvalues > 0
     rank = np.sum(s > 0)
@@ -56,7 +55,7 @@ def decompose_trajectory_matrix(trajectory_matrix, K, svd_method='randomized'):
     # singular values are the square root of the eigenvalues
     #s = np.sqrt(s)
 
-    return V.T, s, V, rank
+    return U, s, U.T, rank
 
 
 def sv_to_explained_variance_ratio(singular_values, N):

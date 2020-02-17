@@ -103,7 +103,7 @@ def randomized_svd_gpu(M, n_components, n_oversamples=10, n_iter='auto',
             U, s, V=( U[:, :n_components], s[:n_components], V[:n_components, :])
         
         if tocpu is True:
-            return np.array(U.cpu()), np.array(s.cpu()), np.array(V.cpu())
+            return np.array(U.cpu()).astype('float'), np.array(s.cpu()).astype('float'), np.array(V.cpu()).astype('float')
         else:
             return U, s, V
 
